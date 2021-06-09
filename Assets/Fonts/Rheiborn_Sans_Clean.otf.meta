@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1d94ec586eb304742a85b7381f164eac
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Rheiborn Sans Clean
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f11261315442adc43b2d9c75bab8cc87, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
