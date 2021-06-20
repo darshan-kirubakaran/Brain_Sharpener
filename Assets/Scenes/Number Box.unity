@@ -1117,6 +1117,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6408630782085130654, guid: 203fdf6057815514cb726c9f508145d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8629798719161252301, guid: 203fdf6057815514cb726c9f508145d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1865,26 +1869,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1332323248}
-    - target: {fileID: 4765751144693611517, guid: a055386b939e78e419b931ade20c7a6b, type: 3}
-      propertyPath: m_fontSize
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4765751144693611517, guid: a055386b939e78e419b931ade20c7a6b, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
-    - target: {fileID: 4765751144693611517, guid: a055386b939e78e419b931ade20c7a6b, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4765751144693611517, guid: a055386b939e78e419b931ade20c7a6b, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
-    - target: {fileID: 4765751144693611517, guid: a055386b939e78e419b931ade20c7a6b, type: 3}
-      propertyPath: m_characterSpacing
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4765751145544280465, guid: a055386b939e78e419b931ade20c7a6b, type: 3}
       propertyPath: m_Name
       value: Number Box Canvas
@@ -1971,18 +1955,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4765751145544280477, guid: a055386b939e78e419b931ade20c7a6b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4765751146659487454, guid: a055386b939e78e419b931ade20c7a6b, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
-    - target: {fileID: 4765751146659487454, guid: a055386b939e78e419b931ade20c7a6b, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
-    - target: {fileID: 4765751146659487454, guid: a055386b939e78e419b931ade20c7a6b, type: 3}
-      propertyPath: m_characterSpacing
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

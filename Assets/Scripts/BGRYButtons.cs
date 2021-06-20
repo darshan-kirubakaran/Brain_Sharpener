@@ -7,35 +7,25 @@ public class BGRYButtons : MonoBehaviour
     public string[] colorNames;
     public Color[] colors;
     Spawner spawner;
+    Hit_Checker hit_Checker;
 
     // Start is called before the first frame update
     void Start()
     {
         spawner = FindObjectOfType<Spawner>();
-
-        //var i = 0;
-        //foreach(Color color in spawner.colors)
-        //{
-          //  colors[i] = color;
-            //i++;
-        //}
+        hit_Checker = FindObjectOfType<Hit_Checker>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Blue()
     {
         if(spawner.textMode)
         {
-            spawner.CheckColorIfRight(colors[0]);
+            hit_Checker.CheckColorIfRight(colors[0]);
         }
         else if(!spawner.textMode)
         {
-            spawner.CheckTextIfRight(colorNames[0]);
+            hit_Checker.CheckTextIfRight(colorNames[0]);
         }
     }
     
@@ -43,11 +33,11 @@ public class BGRYButtons : MonoBehaviour
     {
         if (spawner.textMode)
         {
-            spawner.CheckColorIfRight(colors[1]);
+            hit_Checker.CheckColorIfRight(colors[1]);
         }
         else if (!spawner.textMode)
         {
-            spawner.CheckTextIfRight(colorNames[1]);
+            hit_Checker.CheckTextIfRight(colorNames[1]);
         }
     }
 
@@ -55,11 +45,11 @@ public class BGRYButtons : MonoBehaviour
     {
         if (spawner.textMode == true)
         {
-            spawner.CheckColorIfRight(colors[2]);
+            hit_Checker.CheckColorIfRight(colors[2]);
         }
         else if (spawner.textMode == false)
         {
-            spawner.CheckTextIfRight(colorNames[2]);
+            hit_Checker.CheckTextIfRight(colorNames[2]);
         }
     }
 
@@ -67,11 +57,11 @@ public class BGRYButtons : MonoBehaviour
     {
         if (spawner.textMode)
         {
-            spawner.CheckColorIfRight(colors[3]);
+            hit_Checker.CheckColorIfRight(colors[3]);
         }
         else if (!spawner.textMode)
         {
-            spawner.CheckTextIfRight(colorNames[3]);
+            hit_Checker.CheckTextIfRight(colorNames[3]);
         }
     }
     
@@ -79,11 +69,11 @@ public class BGRYButtons : MonoBehaviour
     {
         if (spawner.textMode)
         {
-            spawner.CheckColorIfRight(colors[4]);
+            hit_Checker.CheckColorIfRight(colors[4]);
         }
         else if (!spawner.textMode)
         {
-            spawner.CheckTextIfRight(colorNames[4]);
+            hit_Checker.CheckTextIfRight(colorNames[4]);
         }
     }
 

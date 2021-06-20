@@ -672,9 +672,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SCHULTE TABLES
-
-    HARD'
+  m_text: TAP IN 60
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
@@ -1261,7 +1259,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: COLOR TEXT
+  m_text: 'HIT COLOR
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
@@ -2820,7 +2820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MEMORY MATRIX
+  m_text: MEMORY MASTER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
@@ -5822,9 +5822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SCHULTE TABLES
-
-    EASY'
+  m_text: TAP 25
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
@@ -7057,7 +7055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: COLOR BLOCKS
+  m_text: HIT TEXT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}

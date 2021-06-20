@@ -768,6 +768,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1558810468}
+    - target: {fileID: 6104114666844818912, guid: 4117703d2d087a64b8590dc435c803d1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104114666844818912, guid: 4117703d2d087a64b8590dc435c803d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8724989602832855305, guid: 4117703d2d087a64b8590dc435c803d1, type: 3}
       propertyPath: m_Name
       value: Leaderboard Canvas

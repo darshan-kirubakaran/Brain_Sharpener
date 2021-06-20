@@ -15,14 +15,15 @@ public class Spawner : MonoBehaviour
     public AudioClip righClickSound;
 
     public bool textMode = false;
+    public bool mathAttack = false;
 
-    Queue<GameObject> BlockQueue = new Queue<GameObject>();
+    public Queue<GameObject> BlockQueue = new Queue<GameObject>();
 
     GameSession gameSession;
     DeathHandler deathHandler;
     Queue queue;
     CountDownTimer countDownTimer;
-    AudioSource audioSource;
+    public AudioSource audioSource;
 
     public bool canSpawn = true;
 
@@ -47,7 +48,11 @@ public class Spawner : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
-        if (textMode)
+        if(mathAttack)
+        {
+            StartCoroutine(RandomMAFallingBlocks());
+        }
+        else if (textMode)
         {
             StartCoroutine(RandomTextFalling());
         }
@@ -81,6 +86,28 @@ public class Spawner : MonoBehaviour
         }
     }
     
+    public IEnumerator RandomMAFallingBlocks()
+    {
+        bool firstSpawn = true;
+
+        while(canSpawn)
+        {
+            randomSpawner = Random.Range((int)-((Screen.width) / Screen.dpi), (int)(Screen.width / Screen.dpi));
+            randomWaitTime = Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns);
+            var newBlock = Instantiate(block, new Vector3(randomSpawner + .20f, (Screen.height / Screen.dpi), 1f), Quaternion.identity);
+            newBlock.transform.parent = blocksParent;
+            BlockQueue.Enqueue(newBlock);
+
+            if (firstSpawn)
+            {
+                FindObjectOfType<MA_ChoiceManager>().ChoiceValueChanger();
+                firstSpawn = false;
+            }
+
+            yield return new WaitForSeconds(randomWaitTime);
+        }
+    }
+    
     public IEnumerator RandomTextFalling()
     {
         while(canSpawn)
@@ -96,58 +123,6 @@ public class Spawner : MonoBehaviour
             }*/
             BlockQueue.Enqueue(newText);
             yield return new WaitForSeconds(randomWaitTime);
-        }
-    }
-
-    public void CheckTextIfRight(string colorName)
-    {
-        if(BlockQueue.Count > 0)
-        {
-            var oldBlock = BlockQueue.Dequeue();
-
-            if (oldBlock.GetComponentInChildren<TextMesh>().text.ToLower() == colorName.ToLower())
-            {
-                // Right
-
-                audioSource.PlayOneShot(righClickSound);
-                gameSession.addToScore(1);
-                Destroy(oldBlock);
-            }
-            else
-            {
-                // Wrong
-
-                Handheld.Vibrate();
-                deathHandler.HandleDeathCondition(false);
-                print("you Lost");
-                Destroy(oldBlock);
-            }
-        }
-    }
-    
-    public void CheckColorIfRight(Color color)
-    {
-        if(BlockQueue.Count > 0)
-        {
-            var oldText = BlockQueue.Dequeue();
-
-            if (oldText.GetComponentInChildren<TextMesh>().color == color)
-            {
-                // Right
-
-                audioSource.PlayOneShot(righClickSound);
-                gameSession.addToScore(1);
-                Destroy(oldText);
-            }
-            else
-            {
-                // Wrong
-
-                Handheld.Vibrate();
-                deathHandler.HandleDeathCondition(false);
-                print("you Lost");
-                Destroy(oldText);
-            }
         }
     }
 
