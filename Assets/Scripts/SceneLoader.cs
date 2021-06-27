@@ -68,6 +68,7 @@ public class SceneLoader : MonoBehaviour
             databaseManager.SchulteTablesHardScoreboardButton();
             databaseManager.SchulteTablesEasyScoreboardButton();
             databaseManager.MemoryMatrixScoreboardButton();
+            databaseManager.MathAddAttackScoreboardButton();
         }
 
         optionsCanvas = GameObject.Find("Options Canvas");
@@ -135,6 +136,11 @@ public class SceneLoader : MonoBehaviour
     public void MemoryMatrix()
     {
         SceneManager.LoadScene("Memory Matrix");
+    }
+    
+    public void MathAttack()
+    {
+        SceneManager.LoadScene("Math Attack");
     }
 
     public void Options()

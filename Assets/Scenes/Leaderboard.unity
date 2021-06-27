@@ -454,6 +454,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1720344738}
     - target: {fileID: 763620070323778133, guid: 330d8d5d340901246a888ba85ee2d3b1, type: 3}
+      propertyPath: mathAttackScoreboardContent
+      value: 
+      objectReference: {fileID: 2026330811}
+    - target: {fileID: 763620070323778133, guid: 330d8d5d340901246a888ba85ee2d3b1, type: 3}
       propertyPath: fallingTextscoreboardContent
       value: 
       objectReference: {fileID: 471226907}
@@ -537,6 +541,11 @@ RectTransform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2290069324098296971, guid: c9d0c60182beab145b8074dcccff3c57, type: 3}
   m_PrefabInstance: {fileID: 2290069324425195806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2026330811 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2026330811, guid: 4117703d2d087a64b8590dc435c803d1, type: 3}
+  m_PrefabInstance: {fileID: 8724989604014574708}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &2040003966 stripped
 RectTransform:
@@ -768,14 +777,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1558810468}
-    - target: {fileID: 6104114666844818912, guid: 4117703d2d087a64b8590dc435c803d1, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104114666844818912, guid: 4117703d2d087a64b8590dc435c803d1, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8724989602832855305, guid: 4117703d2d087a64b8590dc435c803d1, type: 3}
       propertyPath: m_Name
       value: Leaderboard Canvas

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using System.Linq;
 
 public class MA_ChoiceManager : MonoBehaviour
 {
 
-    public Button[] choices;
+    public GameObject[] choices;
 
     MA_Checker ma_Checker;
     Spawner spawner;
@@ -20,10 +22,27 @@ public class MA_ChoiceManager : MonoBehaviour
 
     public void ChoiceValueChanger()
     {
-        foreach(Button choice in choices)
+        int answer = int.Parse(spawner.BlockQueue.Peek().name);
+
+        List<int> choiceList = CreateChoiceList(answer);
+
+        foreach (GameObject choice in choices)
         {
-            choice.GetComponentInChildren<TextMeshProUGUI>().text = spawner.BlockQueue.Peek().name;
+            var val = UnityEngine.Random.Range(0, choiceList.Count);
+
+            choice.GetComponentInChildren<TextMeshProUGUI>().text = choiceList[val].ToString();
+
+            choiceList.RemoveAt(val);
         }
+    }
+
+    private List<int> CreateChoiceList(int answer)
+    {
+        int[] choiceArray = { answer, answer + 1, answer + 4, answer - 1, answer - 3, answer + 5 };
+
+        List<int> choiceList = choiceArray.ToList();
+
+        return choiceList;
     }
 
     public void ChoiceButton()

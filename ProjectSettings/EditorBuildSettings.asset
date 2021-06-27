@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Memory Matrix.unity
     guid: 72690ae8d98b80441931c15baa715c94
+  - enabled: 1
+    path: Assets/Scenes/Math Attack.unity
+    guid: 1f0d2d1aded62eb4793cf31245971845
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d00d9a1da0b48de489ed8732b2d6f4cf, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: da05a7053ae8c1b4c9159beff8295bd3, type: 2}

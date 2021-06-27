@@ -35,7 +35,7 @@ public class DeathHandler : MonoBehaviour
         inistializeFirebase = FindObjectOfType<InistializeFirebase>();
         demo = FindObjectOfType<Demo>();
 
-        if(FindObjectOfType<Spawner>())
+        if(FindObjectOfType<Spawner>() && FindObjectOfType<Spawner>().mathAttack == false)
         {
             if (spawner.textMode == true)
             {

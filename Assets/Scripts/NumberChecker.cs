@@ -153,7 +153,7 @@ public class NumberChecker : MonoBehaviour
         }
         print("cuurentLevel = " + mm_LevelManager.currentLevel);
         mm_LevelManager.currentRound = 1;
-        PlayerPrefs.SetInt("CurrentLevel", mm_LevelManager.currentLevel);
+        PlayerPrefs.SetInt("MM_CurrentLevel", mm_LevelManager.currentLevel);
         mm_LevelManager.levelText.text = "Level " + mm_LevelManager.currentLevel;
 
         yield return new WaitForSeconds(1);

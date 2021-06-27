@@ -32,12 +32,12 @@ public class MM_LevelManager : MonoBehaviour
         countDownText = GameObject.Find("Count Down Text").GetComponent<TextMeshProUGUI>();
         resultImage = GameObject.Find("Result Image").GetComponent<Image>();
 
-        if (!PlayerPrefs.HasKey("CurrentLevel"))
+        if (!PlayerPrefs.HasKey("MM_CurrentLevel"))
         {
-            PlayerPrefs.SetInt("CurrentLevel", currentLevel);
+            PlayerPrefs.SetInt("MM_CurrentLevel", currentLevel);
         }
         
-        currentLevel = PlayerPrefs.GetInt("CurrentLevel");
+        currentLevel = PlayerPrefs.GetInt("MM_CurrentLevel");
 
         gameSession.addToScore((currentLevel * (currentLevel + 1) / 2) - currentLevel);
         print("Score = " + gameSession.score);

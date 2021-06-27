@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public Color[] colors;
+    public Sprite[] spriteImages;
     public GameObject block;
     public GameObject text;
     public Transform blocksParent;
@@ -19,13 +20,18 @@ public class Spawner : MonoBehaviour
 
     public Queue<GameObject> BlockQueue = new Queue<GameObject>();
 
+    Sprite spriteImage;
+
     GameSession gameSession;
     DeathHandler deathHandler;
     Queue queue;
     CountDownTimer countDownTimer;
+    MA_LevelManager ma_levelmanager;
     public AudioSource audioSource;
 
     public bool canSpawn = true;
+
+    public int totalSpawns = 0;
 
     private void Awake()
     {
@@ -45,11 +51,13 @@ public class Spawner : MonoBehaviour
         gameSession = FindObjectOfType<GameSession>();
         deathHandler = FindObjectOfType<DeathHandler>();
         countDownTimer = FindObjectOfType<CountDownTimer>();
+        ma_levelmanager = FindObjectOfType<MA_LevelManager>();
 
         audioSource = GetComponent<AudioSource>();
 
         if(mathAttack)
         {
+            spriteImage = spriteImages[Random.Range(0, spriteImages.Length)];
             StartCoroutine(RandomMAFallingBlocks());
         }
         else if (textMode)
@@ -88,20 +96,32 @@ public class Spawner : MonoBehaviour
     
     public IEnumerator RandomMAFallingBlocks()
     {
-        bool firstSpawn = true;
-
         while(canSpawn)
         {
             randomSpawner = Random.Range((int)-((Screen.width) / Screen.dpi), (int)(Screen.width / Screen.dpi));
             randomWaitTime = Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns);
             var newBlock = Instantiate(block, new Vector3(randomSpawner + .20f, (Screen.height / Screen.dpi), 1f), Quaternion.identity);
-            newBlock.transform.parent = blocksParent;
+            newBlock.GetComponent<SpriteRenderer>().sprite = spriteImage;
             BlockQueue.Enqueue(newBlock);
+            newBlock.transform.parent = blocksParent;
 
-            if (firstSpawn)
+            if (BlockQueue.Count == 1)
             {
                 FindObjectOfType<MA_ChoiceManager>().ChoiceValueChanger();
-                firstSpawn = false;
+            }
+
+            totalSpawns++;
+
+            if(totalSpawns > ma_levelmanager.lcount)
+            {
+                print("Next Level");
+
+                //ma_levelmanager.currentLevel++;
+                //PlayerPrefs.SetInt("MA_CurrentLevel", ma_levelmanager.currentLevel);
+
+                ma_levelmanager.RunLevels(1);
+
+                totalSpawns = 0;
             }
 
             yield return new WaitForSeconds(randomWaitTime);

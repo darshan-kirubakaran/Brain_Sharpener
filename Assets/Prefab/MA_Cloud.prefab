@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82e6bfd30cc56546887692b24b103a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnImage: {fileID: 0}
   colors:
   - {r: 0, g: 0.34117648, b: 1, a: 1}
   - {r: 0, g: 1, b: 0.13725491, a: 1}
