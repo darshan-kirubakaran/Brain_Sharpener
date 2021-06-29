@@ -44,7 +44,7 @@ public class MA_Checker : MonoBehaviour
             else
             {
                 // Wrong
-                //deathHandler = FindObjectOfType<DeathHandler>();
+
                 Handheld.Vibrate();
                 PlayerPrefs.SetInt("MA_CurrentLevel", ma_LevelManager.level);
                 print("DeathHandler = " + deathHandler);

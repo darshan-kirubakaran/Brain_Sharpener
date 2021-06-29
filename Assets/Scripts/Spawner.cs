@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public Color[] colors;
-    public Sprite[] spriteImages;
+    public GameObject[] fallingObjects;
     public GameObject block;
     public GameObject text;
     public Transform blocksParent;
@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
 
     public Queue<GameObject> BlockQueue = new Queue<GameObject>();
 
-    Sprite spriteImage;
+    GameObject fallingObject;
 
     GameSession gameSession;
     DeathHandler deathHandler;
@@ -57,7 +57,7 @@ public class Spawner : MonoBehaviour
 
         if(mathAttack)
         {
-            spriteImage = spriteImages[Random.Range(0, spriteImages.Length)];
+            fallingObject = fallingObjects[Random.Range(0, fallingObjects.Length)];
             StartCoroutine(RandomMAFallingBlocks());
         }
         else if (textMode)
@@ -100,8 +100,7 @@ public class Spawner : MonoBehaviour
         {
             randomSpawner = Random.Range((int)-((Screen.width) / Screen.dpi), (int)(Screen.width / Screen.dpi));
             randomWaitTime = Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns);
-            var newBlock = Instantiate(block, new Vector3(randomSpawner + .20f, (Screen.height / Screen.dpi), 1f), Quaternion.identity);
-            newBlock.GetComponent<SpriteRenderer>().sprite = spriteImage;
+            var newBlock = Instantiate(fallingObject, new Vector3(randomSpawner + .20f, (Screen.height / Screen.dpi), 1f), Quaternion.identity);
             BlockQueue.Enqueue(newBlock);
             newBlock.transform.parent = blocksParent;
 

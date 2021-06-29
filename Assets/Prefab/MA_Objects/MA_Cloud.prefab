@@ -94,7 +94,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 33613bcb593bb4e4ca945e20e9c7f01e, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!1 &4071942604432744088
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f9e26c84701f74145972af908719bcef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3354643fa8e2eef4cb0c63bf8c406414, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -240,12 +240,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82e6bfd30cc56546887692b24b103a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnImage: {fileID: 0}
-  colors:
-  - {r: 0, g: 0.34117648, b: 1, a: 1}
-  - {r: 0, g: 1, b: 0.13725491, a: 1}
-  - {r: 1, g: 0, b: 0.007843138, a: 1}
-  - {r: 1, g: 0.8862745, b: 0, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
   colorNames: []
-  speed: 1
+  speed: 0.8

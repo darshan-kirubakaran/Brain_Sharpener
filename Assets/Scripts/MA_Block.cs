@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MA_Block : MonoBehaviour
 {
-    public Color[] colors;
     public string[] colorNames;
     public float speed = 12f;
     int randomBlockColor;
@@ -25,14 +24,12 @@ public class MA_Block : MonoBehaviour
 
         ma_LevelManager = FindObjectOfType<MA_LevelManager>();
 
-        randomBlockColor = Random.Range(0, colors.Length);
         randomBlockColorName = Random.Range(0, colorNames.Length);
 
-        spriteRenderer.color = colors[randomBlockColor];
         int a = Random.Range(ma_LevelManager.minA, ma_LevelManager.maxA);
         int b = Random.Range(ma_LevelManager.minB, ma_LevelManager.maxB);
 
-        textMesh.text = a.ToString() + " + " + b.ToString() + " =";
+        textMesh.text = a.ToString() + " + " + b.ToString();
         this.gameObject.name = (a + b).ToString();
 
     }

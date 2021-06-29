@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
-  m_sharedMaterial: {fileID: -7775868453950998764, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
+  m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 193.9
+  m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -255,9 +255,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BGRYButtons, Assembly-CSharp
-        m_MethodName: Black
+      - m_Target: {fileID: 964884826}
+        m_TargetAssemblyTypeName: MA_ChoiceManager, Assembly-CSharp
+        m_MethodName: Choice6
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -334,8 +334,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
-  m_sharedMaterial: {fileID: -7775868453950998764, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
+  m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 193.9
+  m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -410,6 +410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2997053745506906048}
+  - component: {fileID: 964884826}
   m_Layer: 5
   m_Name: Choices
   m_TagString: Untagged
@@ -442,6 +443,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &964884826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917697298311407258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1085bcc88a01448ba3c36415580b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choices:
+  - {fileID: 7850118026322307906}
+  - {fileID: 3485955413603083648}
+  - {fileID: 2677050045130699642}
+  - {fileID: 4384165418030540999}
+  - {fileID: 6078391178065567441}
+  - {fileID: 357461275}
 --- !u!1 &1856046311980920954
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,8 +529,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
-  m_sharedMaterial: {fileID: -7775868453950998764, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
+  m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -544,7 +564,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 193.9
+  m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -643,8 +663,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
-  m_sharedMaterial: {fileID: -7775868453950998764, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
+  m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -678,7 +698,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 193.9
+  m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -933,9 +953,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BGRYButtons, Assembly-CSharp
-        m_MethodName: Red
+      - m_Target: {fileID: 964884826}
+        m_TargetAssemblyTypeName: MA_ChoiceManager, Assembly-CSharp
+        m_MethodName: Choice3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1012,8 +1032,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
-  m_sharedMaterial: {fileID: -7775868453950998764, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
+  m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1047,7 +1067,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 193.9
+  m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1200,9 +1220,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BGRYButtons, Assembly-CSharp
-        m_MethodName: Blue
+      - m_Target: {fileID: 964884826}
+        m_TargetAssemblyTypeName: MA_ChoiceManager, Assembly-CSharp
+        m_MethodName: Choice2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1333,9 +1353,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BGRYButtons, Assembly-CSharp
-        m_MethodName: Yellow
+      - m_Target: {fileID: 964884826}
+        m_TargetAssemblyTypeName: MA_ChoiceManager, Assembly-CSharp
+        m_MethodName: Choice4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1466,9 +1486,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BGRYButtons, Assembly-CSharp
-        m_MethodName: Black
+      - m_Target: {fileID: 964884826}
+        m_TargetAssemblyTypeName: MA_ChoiceManager, Assembly-CSharp
+        m_MethodName: Choice5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1694,8 +1714,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
-  m_sharedMaterial: {fileID: -7775868453950998764, guid: 45cce54055e989e45b7fb634966b5619, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
+  m_sharedMaterial: {fileID: 7862446114859480826, guid: 797dbbb51a90abb40a4c76e9ee9affac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1729,7 +1749,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 193.9
+  m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1882,9 +1902,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BGRYButtons, Assembly-CSharp
-        m_MethodName: Green
+      - m_Target: {fileID: 964884826}
+        m_TargetAssemblyTypeName: MA_ChoiceManager, Assembly-CSharp
+        m_MethodName: Choice1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

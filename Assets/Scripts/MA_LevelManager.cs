@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class MA_LevelManager : MonoBehaviour
@@ -8,13 +7,29 @@ public class MA_LevelManager : MonoBehaviour
     //
     // type, mina, maxa, minb, maxb, minc, maxc, spawncount,
     public int[,] addLevels = {
-                                {0, 9, 0, 9, 0, 0, 2},
-                                {0, 9, 10, 19, 0, 0, 2},
-                                {0, 9, 20, 29, 0, 0, 2}
+                                {0, 9, 0, 9, 0, 0, 10},
+                                {0, 9, 10, 19, 0, 0, 10},
+                                {0, 9, 20, 29, 0, 0, 10},
+                                {0, 9, 30, 39, 0, 0, 10},
+                                {0, 9, 40, 49, 0, 0, 10},
+                                {0, 9, 50, 59, 0, 0, 10},
+                                {0, 9, 60, 69, 0, 0, 10},
+                                {0, 9, 70, 79, 0, 0, 10},
+                                {0, 9, 80, 89, 0, 0, 10},
+                                {0, 9, 90, 99, 0, 0, 10},
+                                {10, 19, 0, 9, 0, 0, 10},
+                                {20, 29, 10, 19, 0, 0, 10},
+                                {30, 39, 20, 29, 0, 0, 10},
+                                {40, 49, 30, 39, 0, 0, 10},
+                                {50, 59, 40, 49, 0, 0, 10},
+                                {60, 69, 50, 59, 0, 0, 10},
+                                {70, 79, 60, 69, 0, 0, 10},
+                                {80, 89, 70, 79, 0, 0, 10},
+                                {90, 99, 80, 89, 0, 0, 10}
                             };
 
     public int level = 0;
-    public int maxLevel = 3;
+    public int maxLevel = 5;
 
     public int minA, minB, maxA, maxB, lcount;
 
