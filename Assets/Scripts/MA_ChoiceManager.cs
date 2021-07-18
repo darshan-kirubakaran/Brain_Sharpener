@@ -14,7 +14,7 @@ public class MA_ChoiceManager : MonoBehaviour
     MA_Checker ma_Checker;
     Spawner spawner;
 
-    private void Start()
+    private void Awake()
     {
         ma_Checker = FindObjectOfType<MA_Checker>();
         spawner = FindObjectOfType<Spawner>();
@@ -22,9 +22,15 @@ public class MA_ChoiceManager : MonoBehaviour
 
     public void ChoiceValueChanger()
     {
-        int answer = int.Parse(spawner.BlockQueue.Peek().name);
+        GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "Cal = " + spawner.BlockQueue.Count;
+
+        int answer = int.Parse(spawner.BlockQueue.Peek().gameObject.name);
+
+        GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "Peek = " + answer.ToString();
 
         List<int> choiceList = CreateChoiceList(answer);
+
+        GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "ANS = " + answer.ToString();
 
         foreach (GameObject choice in choices)
         {
@@ -45,11 +51,6 @@ public class MA_ChoiceManager : MonoBehaviour
         return choiceList;
     }
 
-    public void ChoiceButton()
-    {
-        ma_Checker.CheckMathAnswer(this.gameObject.GetComponentInChildren<TextMeshProUGUI>().text);
-    }
-    
     public void Choice1()
     {
         ma_Checker.CheckMathAnswer(choices[0].gameObject.GetComponentInChildren<TextMeshProUGUI>().text);

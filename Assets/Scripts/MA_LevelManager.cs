@@ -5,18 +5,18 @@ using UnityEngine;
 public class MA_LevelManager : MonoBehaviour
 {
     //
-    // type, mina, maxa, minb, maxb, minc, maxc, spawncount,
+    // mina, maxa, minb, maxb, minc, maxc, spawncount,
     public int[,] addLevels = {
-                                {0, 9, 0, 9, 0, 0, 10},
-                                {0, 9, 10, 19, 0, 0, 10},
-                                {0, 9, 20, 29, 0, 0, 10},
-                                {0, 9, 30, 39, 0, 0, 10},
-                                {0, 9, 40, 49, 0, 0, 10},
-                                {0, 9, 50, 59, 0, 0, 10},
-                                {0, 9, 60, 69, 0, 0, 10},
-                                {0, 9, 70, 79, 0, 0, 10},
-                                {0, 9, 80, 89, 0, 0, 10},
-                                {0, 9, 90, 99, 0, 0, 10},
+                                {1, 9, 0, 9, 0, 0, 10},
+                                {1, 9, 10, 19, 0, 0, 10},
+                                {1, 9, 20, 29, 0, 0, 10},
+                                {1, 9, 30, 39, 0, 0, 10},
+                                {1, 9, 40, 49, 0, 0, 10},
+                                {1, 9, 50, 59, 0, 0, 10},
+                                {1, 9, 60, 69, 0, 0, 10},
+                                {1, 9, 70, 79, 0, 0, 10},
+                                {1, 9, 80, 89, 0, 0, 10},
+                                {1, 9, 90, 99, 0, 0, 10},
                                 {10, 19, 0, 9, 0, 0, 10},
                                 {20, 29, 10, 19, 0, 0, 10},
                                 {30, 39, 20, 29, 0, 0, 10},
@@ -28,6 +28,8 @@ public class MA_LevelManager : MonoBehaviour
                                 {90, 99, 80, 89, 0, 0, 10}
                             };
 
+    public string symbol = "ADD";
+
     public int level = 0;
     public int maxLevel = 5;
 
@@ -35,20 +37,48 @@ public class MA_LevelManager : MonoBehaviour
 
 
     GameSession gameSession;
+    MA_LevelManager ma_LevelManager;
+    DeathHandler deathHandler;
 
-    public void Start()
+    private void Awake()
     {
+        ma_LevelManager = FindObjectOfType<MA_LevelManager>();
+        deathHandler = FindObjectOfType<DeathHandler>();
 
-    
+        symbol = PlayerPrefs.GetString("MathMode");
 
+        if (ma_LevelManager.symbol == "ADD")
+        {
+            deathHandler.gameName = "MathAddAttack";
+        }
+        else if (ma_LevelManager.symbol == "SUB")
+        {
+            deathHandler.gameName = "MathSubAttack";
+        }
+        else if (ma_LevelManager.symbol == "MUL")
+        {
+            deathHandler.gameName = "MathMulAttack";
+        }
+        else if (ma_LevelManager.symbol == "DIV")
+        {
+            deathHandler.gameName = "MathDivAttack";
+        }
+        else if (ma_LevelManager.symbol == "MIX")
+        {
+            deathHandler.gameName = "MathMixAttack";
+        }
+    }
+
+    void Start()
+    {
         gameSession = FindObjectOfType<GameSession>();
 
-        if (!PlayerPrefs.HasKey("MA_CurrentLevel"))
+        if (!PlayerPrefs.HasKey(symbol + "Level"))
         {
-            PlayerPrefs.SetInt("MA_CurrentLevel", 0);
+            PlayerPrefs.SetInt(symbol + "Level", 0);
         }
 
-        level = PlayerPrefs.GetInt("MA_CurrentLevel");
+        level = PlayerPrefs.GetInt(symbol + "Level");
 
         print("Level = " + level);
 
@@ -63,6 +93,7 @@ public class MA_LevelManager : MonoBehaviour
         for (int i = 0; i < level; i++)
         {
             score = score + addLevels[i, 6];
+            print("MA_LevelManager Score = " + score + " " + i);
         }
 
         gameSession.addToScore(score);
@@ -70,7 +101,7 @@ public class MA_LevelManager : MonoBehaviour
 
     public void RunLevels(int val)
     {
-        PlayerPrefs.SetInt("MA_CurrentLevel", level);
+        PlayerPrefs.SetInt(symbol + "Level", level);
 
 
 

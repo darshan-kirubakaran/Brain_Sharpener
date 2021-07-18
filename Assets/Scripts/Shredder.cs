@@ -21,7 +21,7 @@ public class Shredder : MonoBehaviour
 
         if (spawner.mathAttack)
         {
-            PlayerPrefs.SetInt("MA_CurrentLevel", ma_LevelManager.level);
+            PlayerPrefs.SetInt(ma_LevelManager.symbol + "Level", ma_LevelManager.level);
         }
 
         deathHandler.HandleDeathCondition(false);

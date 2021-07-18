@@ -29,8 +29,33 @@ public class MA_Block : MonoBehaviour
         int a = Random.Range(ma_LevelManager.minA, ma_LevelManager.maxA);
         int b = Random.Range(ma_LevelManager.minB, ma_LevelManager.maxB);
 
-        textMesh.text = a.ToString() + " + " + b.ToString();
-        this.gameObject.name = (a + b).ToString();
+        if(ma_LevelManager.symbol == "ADD")
+        {
+            textMesh.text = a.ToString() + " + " + b.ToString();
+            this.gameObject.name = (a + b).ToString();
+        }
+        else if (ma_LevelManager.symbol == "SUB")
+        {
+            textMesh.text = a.ToString() + " - " + b.ToString();
+            this.gameObject.name = (a - b).ToString();
+        }
+        else if (ma_LevelManager.symbol == "MUL")
+        {
+            textMesh.text = b.ToString() + " X " + a.ToString();
+            this.gameObject.name = (b * a).ToString();
+        }
+        else if (ma_LevelManager.symbol == "DIV")
+        {
+            int c = a * b;
+
+            textMesh.text = c.ToString() + " / " + b.ToString();
+            this.gameObject.name = (c / b).ToString();
+        }
+        else if (ma_LevelManager.symbol == "MIX")
+        {
+            textMesh.text = a.ToString() + " + " + b.ToString();
+            this.gameObject.name = (a + b).ToString();
+        }
 
     }
 

@@ -69,6 +69,9 @@ public class SceneLoader : MonoBehaviour
             databaseManager.SchulteTablesEasyScoreboardButton();
             databaseManager.MemoryMatrixScoreboardButton();
             databaseManager.MathAddAttackScoreboardButton();
+            databaseManager.MathSubAttackScoreboardButton();
+            databaseManager.MathMulAttackScoreboardButton();
+            databaseManager.MathDivAttackScoreboardButton();
         }
 
         optionsCanvas = GameObject.Find("Options Canvas");
@@ -138,8 +141,27 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("Memory Matrix");
     }
     
-    public void MathAttack()
+    public void AddAttack()
     {
+        PlayerPrefs.SetString("MathMode", "ADD");
+        SceneManager.LoadScene("Math Attack");
+    }
+
+    public void SubAttack()
+    {
+        PlayerPrefs.SetString("MathMode", "SUB");
+        SceneManager.LoadScene("Math Attack");
+    }
+
+    public void MulAttack()
+    {
+        PlayerPrefs.SetString("MathMode", "MUL");
+        SceneManager.LoadScene("Math Attack");
+    }
+
+    public void DivAttack()
+    {
+        PlayerPrefs.SetString("MathMode", "DIV");
         SceneManager.LoadScene("Math Attack");
     }
 

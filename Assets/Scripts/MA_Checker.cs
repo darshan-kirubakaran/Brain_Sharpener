@@ -46,7 +46,7 @@ public class MA_Checker : MonoBehaviour
                 // Wrong
 
                 Handheld.Vibrate();
-                PlayerPrefs.SetInt("MA_CurrentLevel", ma_LevelManager.level);
+                PlayerPrefs.SetInt(ma_LevelManager.symbol + "Level", ma_LevelManager.level);
                 print("DeathHandler = " + deathHandler);
                 deathHandler.HandleDeathCondition(false);
                 print("you Lost");

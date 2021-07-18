@@ -20,6 +20,7 @@ public class GameSession : MonoBehaviour
 
     public void addToScore(int numToAddToScore)
     {
+        print("Score in GameSession = " + score);
         score += numToAddToScore;
         if(ScoreTextBox != null)
         {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -27,6 +28,7 @@ public class Spawner : MonoBehaviour
     Queue queue;
     CountDownTimer countDownTimer;
     MA_LevelManager ma_levelmanager;
+    MA_ChoiceManager ma_ChoiceManger;
     public AudioSource audioSource;
 
     public bool canSpawn = true;
@@ -52,6 +54,7 @@ public class Spawner : MonoBehaviour
         deathHandler = FindObjectOfType<DeathHandler>();
         countDownTimer = FindObjectOfType<CountDownTimer>();
         ma_levelmanager = FindObjectOfType<MA_LevelManager>();
+        ma_ChoiceManger = FindObjectOfType<MA_ChoiceManager>();
 
         audioSource = GetComponent<AudioSource>();
 
@@ -106,7 +109,8 @@ public class Spawner : MonoBehaviour
 
             if (BlockQueue.Count == 1)
             {
-                FindObjectOfType<MA_ChoiceManager>().ChoiceValueChanger();
+                GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "B = " + BlockQueue.Count.ToString();
+                ma_ChoiceManger.ChoiceValueChanger();
             }
 
             totalSpawns++;
@@ -124,6 +128,7 @@ public class Spawner : MonoBehaviour
             }
 
             yield return new WaitForSeconds(randomWaitTime);
+            GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "New Spawn";
         }
     }
     
@@ -148,10 +153,12 @@ public class Spawner : MonoBehaviour
     public void StopSpawning()
     {
         canSpawn = false;
+        GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "Paused";
     }
 
     public void ResumeSpawning()
     {
         canSpawn = true;
+        GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "Resumed";
     }
 }

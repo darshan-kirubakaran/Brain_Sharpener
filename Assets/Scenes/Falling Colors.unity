@@ -1205,6 +1205,7 @@ Transform:
   - {fileID: 7517087231963137667}
   - {fileID: 7421514894091220866}
   - {fileID: 1021831901}
+  - {fileID: 1539838836}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1296,6 +1297,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerNumber: 5
+--- !u!1 &1539838835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1539838836}
+  - component: {fileID: 1539838837}
+  m_Layer: 0
+  m_Name: Hit_Checker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1539838836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539838835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1260437003}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1539838837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539838835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ef53c1bf44cce4ba4e409aca8badab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1690591920 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3613187763435129115, guid: 537132fec50760248a836e3557944f32, type: 3}
@@ -1568,6 +1612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors: []
+  fallingObjects: []
   block: {fileID: 4071942604432744088, guid: 13994b3a050eb8641914c4db0ea1dae9, type: 3}
   text: {fileID: 2499151142937576358, guid: 7cb7b2022a84ed047af2382dba710eae, type: 3}
   blocksParent: {fileID: 1049754875}
@@ -1575,7 +1620,10 @@ MonoBehaviour:
   maxTimeBetweenSpawns: 5
   righClickSound: {fileID: 8300000, guid: decc29b66b63b234f961f0ac6009e226, type: 3}
   textMode: 0
+  mathAttack: 0
+  audioSource: {fileID: 0}
   canSpawn: 1
+  totalSpawns: 0
 --- !u!4 &2106138389
 Transform:
   m_ObjectHideFlags: 0

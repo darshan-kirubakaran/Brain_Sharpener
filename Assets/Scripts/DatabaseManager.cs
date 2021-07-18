@@ -23,7 +23,10 @@ public class DatabaseManager : MonoBehaviour
     public Transform schulteTablesHardScoreboardContent;
     public Transform schulteTablesEasyScoreboardContent;
     public Transform memoryMatrixScoreboardContent;
-    public Transform mathAttackScoreboardContent;
+    public Transform mathAddAttackScoreboardContent;
+    public Transform mathSubAttackScoreboardContent;
+    public Transform mathMulAttackScoreboardContent;
+    public Transform mathDivAttackScoreboardContent;
     public TextMeshProUGUI warningText;
 
     public int Lastscore = 0;
@@ -60,7 +63,7 @@ public class DatabaseManager : MonoBehaviour
         DBreference = inistializeFirebase.DBreference;
 
     }
-    
+
     public void SaveDataButton(int Highscore, string gameName)
     {
         StartCoroutine(UpdateHighscore(Highscore, gameName));
@@ -68,7 +71,7 @@ public class DatabaseManager : MonoBehaviour
 
     public void FallingColorsScoreboardButton()
     {
-        if(inistializeFirebase.isLogedIn)
+        if (inistializeFirebase.isLogedIn)
         {
             warningText.enabled = false;
             StartCoroutine(LoadFallingColorsScoreboardData());
@@ -78,10 +81,10 @@ public class DatabaseManager : MonoBehaviour
             warningText.enabled = true;
         }
     }
-    
+
     public void FallingTextScoreboardButton()
     {
-        if(inistializeFirebase.isLogedIn)
+        if (inistializeFirebase.isLogedIn)
         {
             warningText.enabled = false;
             StartCoroutine(LoadFallingTextScoreboardData());
@@ -91,10 +94,10 @@ public class DatabaseManager : MonoBehaviour
             warningText.enabled = true;
         }
     }
-    
+
     public void SchulteTablesHardScoreboardButton()
     {
-        if(inistializeFirebase.isLogedIn)
+        if (inistializeFirebase.isLogedIn)
         {
             warningText.enabled = false;
             StartCoroutine(LoadSchulteTablesHardScoreboardData());
@@ -104,10 +107,10 @@ public class DatabaseManager : MonoBehaviour
             warningText.enabled = true;
         }
     }
-    
+
     public void SchulteTablesEasyScoreboardButton()
     {
-        if(inistializeFirebase.isLogedIn)
+        if (inistializeFirebase.isLogedIn)
         {
             warningText.enabled = false;
             StartCoroutine(LoadSchulteTablesEasyScoreboardData());
@@ -117,10 +120,10 @@ public class DatabaseManager : MonoBehaviour
             warningText.enabled = true;
         }
     }
-    
+
     public void MemoryMatrixScoreboardButton()
     {
-        if(inistializeFirebase.isLogedIn)
+        if (inistializeFirebase.isLogedIn)
         {
             warningText.enabled = false;
             StartCoroutine(LoadMemoryMatrixScoreboardData());
@@ -130,13 +133,52 @@ public class DatabaseManager : MonoBehaviour
             warningText.enabled = true;
         }
     }
-    
+
     public void MathAddAttackScoreboardButton()
     {
-        if(inistializeFirebase.isLogedIn)
+        if (inistializeFirebase.isLogedIn)
         {
             warningText.enabled = false;
-            StartCoroutine(LoadMathAttackScoreboardData());
+            StartCoroutine(LoadMathAddAttackScoreboardData());
+        }
+        else
+        {
+            warningText.enabled = true;
+        }
+    }
+    
+    public void MathSubAttackScoreboardButton()
+    {
+        if (inistializeFirebase.isLogedIn)
+        {
+            warningText.enabled = false;
+            StartCoroutine(LoadMathSubAttackScoreboardData());
+        }
+        else
+        {
+            warningText.enabled = true;
+        }
+    }
+    
+    public void MathMulAttackScoreboardButton()
+    {
+        if (inistializeFirebase.isLogedIn)
+        {
+            warningText.enabled = false;
+            StartCoroutine(LoadMathMulAttackScoreboardData());
+        }
+        else
+        {
+            warningText.enabled = true;
+        }
+    }
+    
+    public void MathDivAttackScoreboardButton()
+    {
+        if (inistializeFirebase.isLogedIn)
+        {
+            warningText.enabled = false;
+            StartCoroutine(LoadMathDivAttackScoreboardData());
         }
         else
         {
@@ -302,7 +344,7 @@ public class DatabaseManager : MonoBehaviour
             //Go to scoareboard screen
         }
     }
-    
+
     private IEnumerator LoadFallingColorsScoreboardData()
     {
         //Get all the users data ordered by kills amount
@@ -330,14 +372,14 @@ public class DatabaseManager : MonoBehaviour
             //Loop through every users UID
             foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
             {
-                
+
                 string username = childSnapshot.Child("username").Value.ToString();
                 int xp = 0;
-                if(childSnapshot.Child("FallingColors").Value != null)
+                if (childSnapshot.Child("FallingColors").Value != null)
                 {
                     xp = int.Parse(childSnapshot.Child("FallingColors").Value.ToString());
                 }
-                
+
 
                 //Instantiate new scoreboard elements
                 GameObject scoreboardElement = Instantiate(scoreElement, fallingColorsscoreboardContent);
@@ -360,7 +402,7 @@ public class DatabaseManager : MonoBehaviour
             //Go to scoareboard screen
         }
     }
-    
+
     private IEnumerator LoadSchulteTablesHardScoreboardData()
     {
         //Get all the users data ordered by kills amount
@@ -416,7 +458,7 @@ public class DatabaseManager : MonoBehaviour
             //Go to scoareboard screen
         }
     }
-    
+
     private IEnumerator LoadSchulteTablesEasyScoreboardData()
     {
         //Get all the users data ordered by kills amount
@@ -521,7 +563,7 @@ public class DatabaseManager : MonoBehaviour
             }
 
             // Instantiate users score
-            if(!usernameExists)
+            if (!usernameExists)
             {
                 GameObject myUserScoreboardElement = Instantiate(scoreElement, memoryMatrixScoreboardContent);
                 myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
@@ -531,8 +573,8 @@ public class DatabaseManager : MonoBehaviour
             //Go to scoareboard screen
         }
     }
-    
-    private IEnumerator LoadMathAttackScoreboardData()
+
+    private IEnumerator LoadMathAddAttackScoreboardData()
     {
         //Get all the users data ordered by kills amount
         var DBTask = DBreference.Child("users").OrderByChild("MathAddAttack").LimitToLast(5).GetValueAsync();
@@ -549,7 +591,7 @@ public class DatabaseManager : MonoBehaviour
             DataSnapshot snapshot = DBTask.Result;
 
             //Destroy any existing scoreboard elements
-            foreach (Transform child in mathAttackScoreboardContent.transform)
+            foreach (Transform child in mathAddAttackScoreboardContent.transform)
             {
                 Destroy(child.gameObject);
             }
@@ -567,7 +609,7 @@ public class DatabaseManager : MonoBehaviour
                 }
 
                 //Instantiate new scoreboard elements
-                GameObject scoreboardElement = Instantiate(scoreElement, mathAttackScoreboardContent);
+                GameObject scoreboardElement = Instantiate(scoreElement, mathAddAttackScoreboardContent);
                 scoreboardElement.GetComponent<ScoreElement>().NewScoreElement(username, xp);
 
                 if (username == inistializeFirebase.username)
@@ -578,9 +620,180 @@ public class DatabaseManager : MonoBehaviour
             }
 
             // Instantiate users score
-            if(!usernameExists)
+            if (!usernameExists)
             {
-                GameObject myUserScoreboardElement = Instantiate(scoreElement, mathAttackScoreboardContent);
+                GameObject myUserScoreboardElement = Instantiate(scoreElement, mathAddAttackScoreboardContent);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
+            }
+
+            //Go to scoareboard screen
+        }
+    }
+
+    private IEnumerator LoadMathSubAttackScoreboardData()
+    {
+        //Get all the users data ordered by kills amount
+        var DBTask = DBreference.Child("users").OrderByChild("MathSubAttack").LimitToLast(5).GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Data has been retrieved
+            DataSnapshot snapshot = DBTask.Result;
+
+            //Destroy any existing scoreboard elements
+            foreach (Transform child in mathSubAttackScoreboardContent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            bool usernameExists = false;
+
+            //Loop through every users UID
+            foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
+            {
+                string username = childSnapshot.Child("username").Value.ToString();
+                int xp = 0;
+                if (childSnapshot.Child("MathSubAttack").Value != null)
+                {
+                    xp = int.Parse(childSnapshot.Child("MathSubAttack").Value.ToString());
+                }
+
+                //Instantiate new scoreboard elements
+                GameObject scoreboardElement = Instantiate(scoreElement, mathSubAttackScoreboardContent);
+                scoreboardElement.GetComponent<ScoreElement>().NewScoreElement(username, xp);
+
+                if (username == inistializeFirebase.username)
+                {
+                    usernameExists = true;
+                    scoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
+                }
+            }
+
+            // Instantiate users score
+            if (!usernameExists)
+            {
+                GameObject myUserScoreboardElement = Instantiate(scoreElement, mathSubAttackScoreboardContent);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
+            }
+
+            //Go to scoareboard screen
+        }
+    }
+
+    private IEnumerator LoadMathMulAttackScoreboardData()
+    {
+        //Get all the users data ordered by kills amount
+        var DBTask = DBreference.Child("users").OrderByChild("MathMulAttack").LimitToLast(5).GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Data has been retrieved
+            DataSnapshot snapshot = DBTask.Result;
+
+            //Destroy any existing scoreboard elements
+            foreach (Transform child in mathMulAttackScoreboardContent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            bool usernameExists = false;
+
+            //Loop through every users UID
+            foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
+            {
+                string username = childSnapshot.Child("username").Value.ToString();
+                int xp = 0;
+                if (childSnapshot.Child("MathMulAttack").Value != null)
+                {
+                    xp = int.Parse(childSnapshot.Child("MathMulAttack").Value.ToString());
+                }
+
+                //Instantiate new scoreboard elements
+                GameObject scoreboardElement = Instantiate(scoreElement, mathMulAttackScoreboardContent);
+                scoreboardElement.GetComponent<ScoreElement>().NewScoreElement(username, xp);
+
+                if (username == inistializeFirebase.username)
+                {
+                    usernameExists = true;
+                    scoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
+                }
+            }
+
+            // Instantiate users score
+            if (!usernameExists)
+            {
+                GameObject myUserScoreboardElement = Instantiate(scoreElement, mathMulAttackScoreboardContent);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
+            }
+
+            //Go to scoareboard screen
+        }
+    }
+    
+    private IEnumerator LoadMathDivAttackScoreboardData()
+    {
+        //Get all the users data ordered by kills amount
+        var DBTask = DBreference.Child("users").OrderByChild("MathDivAttack").LimitToLast(5).GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Data has been retrieved
+            DataSnapshot snapshot = DBTask.Result;
+
+            //Destroy any existing scoreboard elements
+            foreach (Transform child in mathDivAttackScoreboardContent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            bool usernameExists = false;
+
+            //Loop through every users UID
+            foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
+            {
+                string username = childSnapshot.Child("username").Value.ToString();
+                int xp = 0;
+                if (childSnapshot.Child("MathDivAttack").Value != null)
+                {
+                    xp = int.Parse(childSnapshot.Child("MathDivAttack").Value.ToString());
+                }
+
+                //Instantiate new scoreboard elements
+                GameObject scoreboardElement = Instantiate(scoreElement, mathDivAttackScoreboardContent);
+                scoreboardElement.GetComponent<ScoreElement>().NewScoreElement(username, xp);
+
+                if (username == inistializeFirebase.username)
+                {
+                    usernameExists = true;
+                    scoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
+                }
+            }
+
+            // Instantiate users score
+            if (!usernameExists)
+            {
+                GameObject myUserScoreboardElement = Instantiate(scoreElement, mathDivAttackScoreboardContent);
                 myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
                 myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
             }
