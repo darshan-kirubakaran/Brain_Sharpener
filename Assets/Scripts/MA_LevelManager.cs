@@ -67,6 +67,8 @@ public class MA_LevelManager : MonoBehaviour
         {
             deathHandler.gameName = "MathMixAttack";
         }
+
+        print("MA_LevelManager = " + deathHandler.gameName);
     }
 
     void Start()

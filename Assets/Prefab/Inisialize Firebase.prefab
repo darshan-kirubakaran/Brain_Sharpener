@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6373895916192083586}
-  - component: {fileID: 6373895916192083587}
+  - component: {fileID: 7383333852310690756}
   m_Layer: 0
   m_Name: Inisialize Firebase
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6373895916192083587
+--- !u!114 &7383333852310690756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,3 +44,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependencyStatus: 0
+  username: 
+  gameNames:
+  - FallingText
+  - FallingColors
+  - SchulteTables-Hard
+  - SchulteTables-Easy
+  - MemoryMatrix
+  - MathAddAttack
+  - MathSubAttack
+  - MathMulAttack
+  - MathDivAttack
+  gameScores:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  finshedInistializingFirebase: 0
+  isLogedIn: 0

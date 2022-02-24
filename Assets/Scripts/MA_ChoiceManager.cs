@@ -22,15 +22,9 @@ public class MA_ChoiceManager : MonoBehaviour
 
     public void ChoiceValueChanger()
     {
-        GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "Cal = " + spawner.BlockQueue.Count;
-
         int answer = int.Parse(spawner.BlockQueue.Peek().gameObject.name);
 
-        GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "Peek = " + answer.ToString();
-
         List<int> choiceList = CreateChoiceList(answer);
-
-        GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "ANS = " + answer.ToString();
 
         foreach (GameObject choice in choices)
         {

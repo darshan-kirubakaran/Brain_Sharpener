@@ -16,8 +16,8 @@ public class InistializeFirebase : MonoBehaviour
     public string username;
     public enum GAMENAMES { HITCOLOR, HITTEXT, TAPIN60, TAP25, MEMORYMASTER};
 
-    public string[] gameNames = { "FallingText", "FallingColors", "SchulteTables-Hard", "SchulteTables-Easy", "MemoryMatrix" };
-    public float[] gameScores = { 0, 0, 0, 0, 0 };
+    public string[] gameNames = { "FallingText", "FallingColors", "SchulteTables-Hard", "SchulteTables-Easy", "MemoryMatrix", "MathAddAttack", "MathSubAttack", "MathMulAttack", "MathDivAttack" };
+    public float[] gameScores = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
     public bool finshedInistializingFirebase = false;
     public bool isLogedIn = false;
@@ -110,9 +110,12 @@ public class InistializeFirebase : MonoBehaviour
 
             foreach (string gamename in gameNames)
             {
-                gameScores[count] = int.Parse(snapshot.Child(gamename).Value.ToString());
-                print(gamename + " " + gameScores[count]);
-                count++;
+                if(snapshot.Child(gamename).Value != null)
+                {
+                    gameScores[count] = int.Parse(snapshot.Child(gamename).Value.ToString());
+                    print(gamename + " " + gameScores[count]);
+                    count++;
+                }
             }
 
             username = snapshot.Child("username").Value.ToString();

@@ -109,7 +109,6 @@ public class Spawner : MonoBehaviour
 
             if (BlockQueue.Count == 1)
             {
-                GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "B = " + BlockQueue.Count.ToString();
                 ma_ChoiceManger.ChoiceValueChanger();
             }
 
@@ -128,7 +127,6 @@ public class Spawner : MonoBehaviour
             }
 
             yield return new WaitForSeconds(randomWaitTime);
-            GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "New Spawn";
         }
     }
     
@@ -153,12 +151,10 @@ public class Spawner : MonoBehaviour
     public void StopSpawning()
     {
         canSpawn = false;
-        GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "Paused";
     }
 
     public void ResumeSpawning()
     {
         canSpawn = true;
-        GameObject.Find("Debug Text").GetComponent<TextMeshProUGUI>().text = "Resumed";
     }
 }

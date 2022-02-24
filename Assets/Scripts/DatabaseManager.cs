@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Assertions.Must;
 
 public class DatabaseManager : MonoBehaviour
 {
@@ -336,8 +337,8 @@ public class DatabaseManager : MonoBehaviour
 
             if (!usernameExists)
             {
-                GameObject myUserScoreboardElement = Instantiate(scoreElement, memoryMatrixScoreboardContent);
-                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                GameObject myUserScoreboardElement = Instantiate(scoreElement, fallingTextscoreboardContent);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[0]);
                 myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
             }
 
@@ -394,8 +395,8 @@ public class DatabaseManager : MonoBehaviour
 
             if (!usernameExists)
             {
-                GameObject myUserScoreboardElement = Instantiate(scoreElement, memoryMatrixScoreboardContent);
-                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                GameObject myUserScoreboardElement = Instantiate(scoreElement, fallingColorsscoreboardContent);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[1]);
                 myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
             }
 
@@ -450,8 +451,8 @@ public class DatabaseManager : MonoBehaviour
 
             if (!usernameExists)
             {
-                GameObject myUserScoreboardElement = Instantiate(scoreElement, memoryMatrixScoreboardContent);
-                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                GameObject myUserScoreboardElement = Instantiate(scoreElement, schulteTablesHardScoreboardContent);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[2]);
                 myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
             }
 
@@ -486,10 +487,12 @@ public class DatabaseManager : MonoBehaviour
             //Loop through every users UID
             foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
             {
+                //print("tap in 25 Value = " + childSnapshot.Child("SchulteTables-Easy").Value.ToString());
                 string username = childSnapshot.Child("username").Value.ToString();
                 if (childSnapshot.Child("SchulteTables-Easy").Value != null)
                 {
                     int xp = int.Parse(childSnapshot.Child("SchulteTables-Easy").Value.ToString());
+                    xp = 100000 - xp;
 
                     float minutes = Mathf.FloorToInt(xp / 60);
                     float seconds = Mathf.FloorToInt(xp % 60);
@@ -508,8 +511,8 @@ public class DatabaseManager : MonoBehaviour
 
             if (!usernameExists)
             {
-                GameObject myUserScoreboardElement = Instantiate(scoreElement, memoryMatrixScoreboardContent);
-                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                GameObject myUserScoreboardElement = Instantiate(scoreElement, schulteTablesEasyScoreboardContent);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[3]);
                 myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
             }
 
@@ -622,8 +625,11 @@ public class DatabaseManager : MonoBehaviour
             // Instantiate users score
             if (!usernameExists)
             {
+                print("Username Does not exist");
                 GameObject myUserScoreboardElement = Instantiate(scoreElement, mathAddAttackScoreboardContent);
-                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                print("Username = " + inistializeFirebase.username);
+                print("gameScores Length = " + inistializeFirebase.gameScores.Length);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[5]);
                 myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
             }
 
@@ -680,7 +686,7 @@ public class DatabaseManager : MonoBehaviour
             if (!usernameExists)
             {
                 GameObject myUserScoreboardElement = Instantiate(scoreElement, mathSubAttackScoreboardContent);
-                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[6]);
                 myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
             }
 
@@ -737,7 +743,7 @@ public class DatabaseManager : MonoBehaviour
             if (!usernameExists)
             {
                 GameObject myUserScoreboardElement = Instantiate(scoreElement, mathMulAttackScoreboardContent);
-                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[7]);
                 myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
             }
 
@@ -794,7 +800,7 @@ public class DatabaseManager : MonoBehaviour
             if (!usernameExists)
             {
                 GameObject myUserScoreboardElement = Instantiate(scoreElement, mathDivAttackScoreboardContent);
-                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[4]);
+                myUserScoreboardElement.GetComponent<ScoreElement>().NewScoreElement(inistializeFirebase.username, (int)inistializeFirebase.gameScores[8]);
                 myUserScoreboardElement.GetComponent<Image>().color = new Color32(10, 32, 46, 255);
             }
 

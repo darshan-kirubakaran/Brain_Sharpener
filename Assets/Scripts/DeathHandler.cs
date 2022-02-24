@@ -99,7 +99,7 @@ public class DeathHandler : MonoBehaviour
             if (inistializeFirebase.isLogedIn == true)
             {
                 warningText.SetActive(false);
-                int dbLastScore = databaseManager.ReturnUserScore(gameName);
+                int dbLastScore = 100000 - databaseManager.ReturnUserScore(gameName);
                 if (!smallerFirst)
                 {
                     if (dbLastScore < gameSession.ReturnScore())
@@ -114,7 +114,7 @@ public class DeathHandler : MonoBehaviour
                     {
 
                         print("values = " + dbLastScore + "   " + gameSession.ReturnScore());
-                        databaseManager.SaveDataButton(gameSession.ReturnScore(), gameName);
+                        databaseManager.SaveDataButton(100000 - gameSession.ReturnScore(), gameName);
                     }
                 }
                 print("LoadUserData");
